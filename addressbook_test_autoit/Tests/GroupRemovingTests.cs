@@ -13,11 +13,21 @@ namespace addressbook_test_autoit
         [Test]
         public void TestGroupRemoving()
         {
-            int N = 1;
+            int N = 1;//удаляемая группа по порядку начиная с нуля
             List<GroupData> oldGroups = app.Groups.GetGroupList();
+
+            if (oldGroups == null)
+            {
+                GroupData newGroup = new GroupData()
+                {
+                    Name = "Test321"
+                };
+                app.Groups.Add(newGroup);
+            }
+
             GroupData removedGroup = new GroupData();
 
-            app.Groups.RemoveGroup(N , removedGroup);//удаляемая группа по порядку начиная с нуля
+            app.Groups.RemoveGroup(N , removedGroup);
 
             List<GroupData> newGroups = app.Groups.GetGroupList();
 
