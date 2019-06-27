@@ -16,7 +16,7 @@ namespace addressbook_test_autoit
             int N = 1;//удаляемая группа по порядку начиная с нуля
             List<GroupData> oldGroups = app.Groups.GetGroupList();
 
-            if (oldGroups == null)
+            if (oldGroups.Count < 2)
             {
                 GroupData newGroup = new GroupData()
                 {
